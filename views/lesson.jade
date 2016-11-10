@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div(class='panel')
+    h1.panelHeader=title
+    hr
+    div(class='lesson')
+      each paragraph in paragraphs
+        p=paragraph
+      div(class='image')
+        if images
+          each image in images
+            img(src=image)
