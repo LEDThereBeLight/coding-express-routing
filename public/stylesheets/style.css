@@ -80,7 +80,7 @@ body {
   padding: auto;
   margin: 80px auto;
   text-align: center;
-  width: 100px;
+  width: 120px;
   height: 30px;
   line-height: 30px;
   background-color: #34495e;
@@ -196,7 +196,7 @@ a {
   height: 0;
 }
 .panel h1 {
-  font-size: 1.8em;
+  font-size: 1.5em;
   line-height: 38px;
   color: #3c3c3c;
   font-weight: 300;
@@ -221,11 +221,23 @@ a {
   line-height: 20px;
 }
 p.pretty {
+  text-align: center;
   background-color: #eee;
   color: #333;
   border-radius: 5px;
   padding: 10px;
   font-family: 'Amatic SC';
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+b {
+  font-weight: bold;
+}
+.blue {
+  color: #009cff;
+}
+.red {
+  color: #ff6347;
 }
 .prompt {
   text-align: center;

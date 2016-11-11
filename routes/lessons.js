@@ -13,10 +13,9 @@ router.get('/', (req, res, next) => {
 
 router.get('/:lesson', (req, res, next) => {
   //let lesson = lessons.filter(lesson => lesson.name === req.params.lesson)[0]
-  let lesson = req.params.lesson
-  console.log(lesson)
+  let lessonPath = 'lessons/' + req.params.lesson
 
-  res.render( lesson )
+  res.render(lessonPath)
 })
 
 
