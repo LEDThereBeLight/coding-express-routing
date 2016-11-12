@@ -1,12 +1,13 @@
 extends layout
 
 block heading
-  h2 types
+  h2 sentences
   hr
 
 block content
-  p Some types, like List and Character, are built into the language. But types aren't special - we can make our own if we want.
 
-  p Types are just a way of categorizing values so we know what to expect from them. For example, we can write a piece of code that works for one type, but not another. The computer allows us to multiply two numbers, for example, but we can't multiply two Characters. What is 'a' * 'a'?
+  p If we're talking about words or even whole sentences, we use double quotes.
 
-  p When we capitalize the type name, that means we're talking about a *specific* type that is recognized by the computer. The computer recognizes the Character type. Same with String. But number isn't a type recognized by the computer - there are lots of different more specific number types, like types for whole numbers (called Integers) and decimals (called Floats).
+  p.pretty "Who's this Rorschach dude and why is he so good at drawing pictures of my mom beating me?"
+
+  p The double quotes and all the words inside create a single expression called a String.

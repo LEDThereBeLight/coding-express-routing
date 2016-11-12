@@ -1,23 +1,19 @@
 extends layout
 
 block heading
-  h2 words
+  h1 What is a type?
   hr
 
 block content
 
-  p In English, we have different kinds of words for different things. Adjectives are for describing, verbs are for doing. Programming has different kinds of words too. The most common kind is the function. A function is a word we use to ask the computer for something.
+    p Every expression, or individual meaning, has one "type". A type is just a grouping that we decide an expression falls into.
 
-  p Imagine your oven can talk. You want some cookies, so you say it to, "Bake."
+    p There are lots of different types - we just talked about two of them in the last section. 'a' is a Character type, because it's a single letter.
 
-  p But your oven has a few questions for you before it knows what to do. It asks you, "Bake what? For how long? At what temperature?"
+    p List is a type that can hold another type. You can have a List of Characters (like 'h', 'e', 'l', 'l', and 'o'). A List of Characters  is also called a String.
 
-  p The oven can't do its job until all its questions are answered, but you don't have to answer all the questions at once. You can answer some, and the oven will remember what you told it. It's like saving your settings.
+    p.pretty "Hello! I'm a string!"
 
-  p Maybe you always bake for 10 minutes at 350 degrees. So you change the settings on your oven to always bake at that temperature for that amount of time. Now we can bake different things without mentioning the temperature or time again. We might want to tell the oven to make cookies today, and cake tomorrow - it already knows how long and what temperature to bake at.
+    p A String is literally just a bunch of Characters on a string. Like a pasta necklace.
 
-  p If you need to, you can always reset the settings and start over with a new "bake" request. But the oven will only *run* when it has all its questions answered - in this case, it has a temperature, time, and something raw to bake.
-
-  p A function works the same way. We ask the computer to give us something, and we answer the questions we know it's going to ask to make what we want. We can say its name and answer its questions all at once, and it will run, or we can answer some of them now and keep the function around to run later.
-
-  img(src='https://media.giphy.com/media/hpfInSxkkLdpS/giphy.gif')
+    img(src='https://s-media-cache-ak0.pinimg.com/originals/70/ed/32/70ed3210b79341723e5b6685d7739cac.jpg')
