@@ -12,11 +12,12 @@ html(lang='en')
         a(href='/') home
       .nav#learn
         a(href='/learn') learn
-      .nav#blog 
+      .nav#blog
         a(href='/blog') blog
     .panel
-      .panelHeader 
+      .panelHeader
         block heading
       .lesson
         block content
-    
+      // Todo: Add previous/next buttons
+      // If previous or next === 'None', gray out
