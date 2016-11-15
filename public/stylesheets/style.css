@@ -220,6 +220,9 @@ a {
   font-size: 15px;
   line-height: 20px;
 }
+.panel a {
+  color: #00f;
+}
 p.pretty {
   overflow: auto;
   text-align: center;

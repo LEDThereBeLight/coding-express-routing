@@ -4,6 +4,8 @@ let express = require('express');
 let router = express.Router();
 let fs = require('fs')
 let path = require('path')
+let lessonsDirectory = path.join('views', 'lessons')
+console.log(lessonsDirectory)
 //let lessons = JSON.parse(fs.readFileSync('routes/lessons.json', 'utf8'))
 
 router.get('/', (req, res, next) => {
@@ -28,29 +30,34 @@ router.get('/:lesson', (req, res, next) => {
 router.get('/:lesson/:page', (req, res, next) => {
   let lesson = req.params.lesson
   let page   = req.params.page
+  console.log("page is", page)
   let pagePath = path.join(lesson, page)
   let previousPage = ''
   let nextPage = ''
 
   // Previous page for "Previous" link
-  let previousPageNumber = toString(parseInt(page) - 1)
-  let previousPagePath = path.join(lesson, previousPageNumber)
+  let previousPageNumber = parseInt(page, 10) - 1
+  let previousPagePath = path.join(lesson, previousPageNumber.toString())
+  console.log("previouspagepath", previousPagePath)
   try {
-    fs.accessSync(previousPagePath)
-    let previousPage = previousPagePath
+    console.log(path.join(lessonsDirectory, previousPagePath))
+    console.log(fs.accessSync(path.join(lessonsDirectory, previousPagePath)))
+
+    previousPage = previousPagePath
   } catch(e) {
-    let previousPage = "None"
+    previousPage = "None"
   }
 
   // Next page for "Next" link
-  let nextPageNumber = toString(parseInt(page) + 1)
-  let nextPagePath = path.join(lesson, nextPageNumber)
+  let nextPageNumber = parseInt(page, 10) + 1
+  let nextPagePath = path.join(lesson, nextPageNumber.toString())
   try {
-    fs.accessSync(nextPagePath)
-    let nextPage = nextPagePath
+    fs.accessSync(path.join(lessonsDirectory, nextPagePath))
+    nextPage = nextPagePath
   } catch(e) {
-    let nextPage = "None"
+    nextPage = "None"
   }
+  console.log("previous page is", previousPage)
 
   res.render(path.join('lessons', pagePath), { previous: previousPage, next: nextPage })
 })

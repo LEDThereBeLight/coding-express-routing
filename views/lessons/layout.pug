@@ -19,5 +19,17 @@ html(lang='en')
         block heading
       .lesson
         block content
+      .buttons
+        p= previous
+        p= next
+        //- if previous == 'None'
+        //-   a(href ='#') Back
+        //- else
+        //-   a(href= previous) Back
+        //- if next == 'None'
+        //-   a(href='#') Next
+        //- else
+        //-   a(href= next) Next
+
       // Todo: Add previous/next buttons
       // If previous or next === 'None', gray out
