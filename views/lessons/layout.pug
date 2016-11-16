@@ -19,17 +19,10 @@ html(lang='en')
         block heading
       .lesson
         block content
-      .buttons
-        p= previous
-        p= next
-        //- if previous == 'None'
-        //-   a(href ='#') Back
-        //- else
-        //-   a(href= previous) Back
-        //- if next == 'None'
-        //-   a(href='#') Next
-        //- else
-        //-   a(href= next) Next
-
-      // Todo: Add previous/next buttons
-      // If previous or next === 'None', gray out
+      block buttons
+        .lessonButtons
+          a(href=prev)
+            button.btn.btn--white#prev Back
+          a(href=next)
+            button.btn.btn--white#next Next
+    script(src='/javascripts/arrows.js')

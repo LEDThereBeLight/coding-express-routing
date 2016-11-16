@@ -10,6 +10,60 @@ body {
   max-width: 750px;
   list-style-type: none;
 }
+.lessonButtons {
+  align-content: space-around;
+  align-self: center;
+}
+.lessonButtons .btn,
+.lessonButtons .btn:link,
+.lessonButtons .btn:visited {
+  cursor: pointer;
+  font-size: 0.6em;
+  margin: 10px;
+  outline: none;
+  border-radius: 0.25em;
+  border-style: solid;
+  border-width: 1px;
+  color: #111;
+  display: inline-block;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5em;
+  padding: 1em 2.5em;
+  text-decoration: none;
+  text-transform: lowercase;
+  font-family: 'Open Sans';
+  -webkit-transition: color 0.4s, background-color 0.4s, border 0.4s;
+  transition: color 0.4s, background-color 0.4s, border 0.4s;
+}
+.lessonButtons .btn:hover,
+.lessonButtons .btn:focus {
+  color: #60b5cc;
+  border: 1px solid #60b5cc;
+  -webkit-transition: background-color 0.3s, color 0.3s, border 0.3s;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+.lessonButtons .btn:active {
+  color: #7fdbff;
+  border: 1px solid #7fdbff;
+  -webkit-transition: background-color 0.3s, color 0.3s, border 0.3s;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+.lessonButtons .btn--white,
+.lessonButtons .btn--white:link,
+.lessonButtons .btn--white:visited {
+  color: #111;
+  border-color: #111;
+  background-color: #fff;
+}
+.lessonButtons .btn--white:hover,
+.lessonButtons .btn--white:focus {
+  color: #60b5cc;
+  background-color: rgba(255,255,255,0.7);
+}
+.lessonButtons .btn--white:active {
+  color: #7fdbff;
+  background-color: rgba(255,255,255,0.9);
+}
 #header {
   display: flex;
   height: 60px;
@@ -30,6 +84,7 @@ body {
   line-height: 60px;
   vertical-align: middle;
   padding-bottom: 15px;
+  letter-spacing: 0.1em;
 }
 #header .nav a:hover {
   border-bottom: 3px solid;
@@ -144,6 +199,7 @@ a {
   background: linear-gradient(to right, #457fca, #89253e);
 }
 .lessonButton {
+  display: inline-block;
   width: 100px;
   height: 100px;
   border-radius: 100%;
@@ -164,12 +220,14 @@ a {
   line-height: 100px;
 }
 .lessonRow {
+  align-content: center;
   align-self: center;
   padding: 30px 0;
   align-items: center;
   list-style-type: none;
 }
 .lessonText {
+  display: inline-block;
   margin-top: 10px;
   font-size: 0.8em;
   color: #457fca;

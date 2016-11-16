@@ -10,6 +10,69 @@ html, body
   max-width 750px
   list-style-type none
 
+.lessonButtons
+  align-content space-around
+  align-self center
+
+  .btn,
+  .btn:link,
+  .btn:visited
+    cursor pointer
+    font-size .6em
+    margin 10px
+    outline none
+    border-radius: 0.25em;
+    border-style: solid;
+    border-width: 1px;
+    color: #111;
+    display: inline-block;
+    // font-family: avenir, helvetica, roboto, arial, sans-serif;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5em;
+    padding: 1em 2.5em;
+    text-decoration: none;
+    text-transform: lowercase;
+    font-family 'Open Sans'
+    -webkit-transition: color 0.4s, background-color 0.4s, border 0.4s;
+    transition: color 0.4s, background-color 0.4s, border 0.4s
+
+  .btn:hover,
+  .btn:focus
+    color #60b5cc
+    border 1px solid #60b5cc
+    // color #7FDBFF
+    // border 1px solid #7FDBFF
+    -webkit-transition: background-color 0.3s, color 0.3s, border 0.3s;
+    transition: background-color 0.3s, color 0.3s, border 0.3s
+
+  .btn:active
+    // color: #60b5cc;
+    color #7FDBFF
+    border 1px solid #7FDBFF
+    // border: 1px solid #60b5cc;
+    -webkit-transition: background-color 0.3s, color 0.3s, border 0.3s;
+    transition: background-color 0.3s, color 0.3s, border 0.3s
+
+  .btn--white,
+  .btn--white:link,
+  .btn--white:visited
+    color: #111
+    border-color #111
+    background-color: #fff
+
+  .btn--white:hover,
+  .btn--white:focus
+    // color: #7FDBFF
+    color: #60b5cc
+    background-color: rgba(255, 255, 255, 0.7)
+
+  .btn--white:active
+    color: #7FDBFF
+
+    // color: #60b5cc
+    background-color rgba(255, 255, 255, 0.9)
+
+
 
 #header
   display flex
@@ -31,6 +94,7 @@ html, body
       line-height 60px
       vertical-align middle
       padding-bottom 15px
+      letter-spacing 0.1em
 
     a:hover
       border-bottom 3px solid
@@ -140,6 +204,7 @@ html, body
   background linear-gradient(to right, #457fca, #89253e)
 
 .lessonButton
+  display inline-block
   width 100px
   height 100px
   border-radius 100%
@@ -160,12 +225,14 @@ html, body
   line-height 100px
 
 .lessonRow
+  align-content center
   align-self center
   padding 30px 0
   align-items center
   list-style-type none
 
 .lessonText
+  display inline-block
   margin-top 10px
   font-size 0.8em
   color #457fca
