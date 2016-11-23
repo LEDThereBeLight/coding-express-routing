@@ -10,9 +10,18 @@ block content
       h3 learning to program by diving into the deep end
     include components/panel.pug
       :markdown-it(linkify langPrefix='highlight-')
+
         Programming is usually taught by starting with the basics - if conditions and while loops, input/output and data types. The idea is that once you understand the fundamentals, complex programs will make sense. The trouble with learning this way is that you have no idea what is important to understand. And in a field where it's simply impossible to understand everything - there's just too much information - knowing what you need to know is as valuable a skill as any other.
 
         We'll build an app that gets cat gifs and draws them on the page. If you're new to programming, you will not understand it completely on your first read through. The idea is less about understanding everything and more about getting a feel for what a real program actually looks like, so when we go back to fundamentals you'll know why you need to understand the concepts.
+
+        Open up the Elm language's [online code editor](http://elm-lang.org/try).
+
+        ~~~
+        Elm
+        ~~~
+        *[Test]: This is a test
+        *[Elm]: A language
 
         ```elm
         -- Read more about this program in the official Elm guide:
@@ -99,7 +108,6 @@ block content
 
 
         -- HTTP
-
 
         getRandomGif : String -> Cmd Msg
         getRandomGif topic =
