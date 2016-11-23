@@ -4,6 +4,39 @@ body {
   background-color: #60b5cc;
   font-family: 'Open Sans';
 }
+abbr,
+acronym {
+  border-bottom: 0.1em dashed;
+  border-color: #60b5cc;
+  cursor: help;
+  position: relative;
+}
+abbr:hover::after {
+  background: #1496bb;
+  opacity: 1 !important;
+  overflow-x: visible;
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 2px;
+  color: #fff;
+  pointer-events: none;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 100%;
+  font-size: 1em;
+  line-height: 1em;
+  content: attr(description);
+  min-width: 100px;
+  -webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.28);
+  -moz-box-shadow: 2px 2px 6px rgba(0,0,0,0.28);
+  -ms-box-shadow: 2px 2px 6px rgba(0,0,0,0.28);
+  -o-box-shadow: 2px 2px 6px rgba(0,0,0,0.28);
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.28);
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+}
 .blog-content {
   padding: 0 15px;
   padding-bottom: 50px;

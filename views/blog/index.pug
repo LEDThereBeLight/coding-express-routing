@@ -6,7 +6,7 @@ block content
 
   .blog-content
     include components/panel.pug
-      :markdown-it(linkify langPrefix='highlight-')
+      :markdown-it(plugins=['markdown-it-abbr'] linkify langPrefix='highlight-')
         # Heading 1
 
         ## Heading 2
@@ -14,12 +14,11 @@ block content
         ![I'm an image](www.google.com)
 
         Markdown document with http://links.com and
+        Test 
+        Open up the Elm language's [online code editor](http://elm-lang.org/try).
 
-        ```js
-        var codeBlocks = 2;
-        for (var i = 0; i < 100; i ++) { console.log (i) }
-        ```
-
-  script(src='/javascripts/jquery.js')
-  script(src='/javascripts/typed.js')
-  script(src='/javascripts/typing.js')
+        ~~~
+        Elm
+        ~~~
+        *[Test]: This is a test
+        *[Elm]: A language
