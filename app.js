@@ -10,7 +10,6 @@ var lessons = require('./routes/lessons');
 var blog = require('./routes/blog')
 
 var app = express();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
