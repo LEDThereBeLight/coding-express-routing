@@ -1,0 +1,173 @@
+extends layout
+
+block content
+  .title
+    h1= title
+
+  .blog-content
+    //- include components/panel.pug
+    //-   h1 cat gifs
+    //-   h3 learn to program by diving into the deep end
+
+    include components/panel.pug
+      #preview
+    include components/panel.pug
+      :markdown-it(plugins=['markdown-it-abbr'] linkify langPrefix='highlight-')
+
+        Programming is usually taught by starting with a few basic concepts:
+          * variables
+          * conditions
+          * syntax
+          * data structures
+
+        The idea is that once you understand the fundamentals, complex programs will make sense. The trouble is that you have no idea what is important to understand and how it all fits together, and so it's easy to give up before it clicks.
+
+        When I first started to learn programming, I had some big questions that went unanswered for a long time. I remember thinking to myself, "why do we have to learn a language just to program? It's 2016, isn't there an app to make this easier?" or "There are a million functions in the documentation for this language, how do I know which ones are important to know and which ones I can lookup later?"
+
+        The goal of this site is to teach you how to learn to program. You won't know every language or framework, but you will know the main ideas that are common across every language.
+
+        Instead of starting with syntax, we'll build an app that gets cat pictures and draws them on the page. The goal is less about understanding everything shown here and more about getting a feel for what a real program actually looks like. That way, when you go back to learn the fundamentals you'll know why you need to understand each idea.
+
+        Lots of courses teach programming using a single language, say Python or Java. The benefit is that you can become comfortable with one way of doing things. But I actually think this is a mistake for new developers. One of the most valuable skills in programming is being able to switch languages depending on the problem you're trying to solve. If you have only been exposed to one language, you waste a lot of time trying to make the problem fit into your language's way of doing things, when you could solve it easily using another language or technique.
+
+        We'll learn enough of a few languages to understand the core problem solving techniques that are common between every language and then start to see how different languages are better at solving different problems.
+
+        The language we'll start with is called Elm. It's a modern language developed to fix a lot of the pains developers face in traditional languages like Javascript, and is a great language to learn how to program with. It's also especially easy to get started with, since you can make basic programs online without installing anything.
+
+        Here is the entire program we're about to write. I wouldn't even really read it, to be honest. It's far too long to understand all at once. Just look at the shape of it, get a feel for what it looks like and how the lines are grouped together. If you exclude styling, it's about 70 lines for a fully-functional modern webpage.
+
+        You can copy and paste this code into the Elm editor at [www.elm-lang.org](http://www.elm-lang.org/try) and play with it yourself.
+
+        *[Test]: This is a test
+
+        *[variables]: names for data
+        *[conditions]: rules for when to do one thing versus another
+        *[syntax]: rules for how to order words in a language
+        *[data structures]: categories for data, like Character for letters or Integer for numbers
+        *[gifs]: animated pictures
+
+
+
+
+        ```elm
+        import Html exposing (..)
+        import Html.Attributes exposing (..)
+        import Html.Events exposing (..)
+        import Http
+        import Json.Decode as Decode
+
+        main = Html.program { init = searchFor "cats",
+                              view = view,
+                              update = update,
+                              subscriptions = subscriptions }
+
+        type alias Model = { topic: String,
+                             gifUrl: String,
+                             searchText: String }
+
+        searchFor : String -> (Model, Cmd Message)
+        searchFor topic = (Model topic "" "", getRandomGif topic)
+
+        type Message
+          = AskedForNewPic
+          | SearchTextChanged String
+          | NewGifReceived (Result Http.Error String)
+
+        update : Message -> Model -> (Model, Cmd Message)
+        update message model =
+          case message of
+            SearchTextChanged newText ->
+              ({model | searchText = newText}, Cmd.none)
+
+            AskedForNewPic ->
+              ({model | searchText = "",
+                        topic = model.searchText},
+               getRandomGif model.searchText)
+
+            NewGifReceived (Ok newImageUrl) ->
+              (Model model.topic newImageUrl "", Cmd.none)
+
+            NewGifReceived (Err _) ->
+              (model, Cmd.none)
+
+        view : Model -> Html Message
+        view model =
+          div [ pageStyle ]
+          [
+            h2 [ titleStyle ] [ text model.topic ],
+            input [ inputStyle,
+                    value model.searchText,
+                    onInput SearchTextChanged,
+                    placeholder "search" ] [],
+            br [] [],
+            br [] [],
+            button [ buttonStyle, onClick AskedForNewPic ]
+              [ text "more please!" ],
+            br [] [],
+            br [] [],
+            img [ imgStyle, src model.gifUrl ] []
+          ]
+        subscriptions : Model -> Sub Message
+        subscriptions model = Sub.none
+
+        getRandomGif : String -> Cmd Message
+        getRandomGif topic =
+          let url =
+            "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag="
+            ++ topic
+          in Http.send NewGifReceived (Http.get url decodeGifUrl)
+
+        decodeGifUrl : Decode.Decoder String
+        decodeGifUrl =
+          Decode.at ["data", "image_url"] Decode.string
+
+        -- Styles
+
+        pageStyle = style [ ("text-align", "center") ]
+
+        inputStyle =
+          style
+            [ ("padding-top", "16px"),
+              ("padding-bottom", "6px"),
+              ("width", "188px"),
+              ("outline", "none"),
+              ("color", "#000"),
+              ("font-size", "16px"),
+              ("font-weight", "400"),
+              ("border", "none"),
+              ("border-bottom", "2px solid #99ddff")
+            ]
+        titleStyle =
+          style [ ("font-size", "2em"), ("color", "#333") ]
+
+        buttonStyle =
+          style
+            [ ("padding", "10px")
+            , ("background-color", "#99ddff")
+            , ("border-radius", "2px")
+            , ("border", "1px solid #99ddff")
+            , ("color", "white")
+            , ("font-size", "1.5em")
+            , ("cursor", "pointer")
+            ]
+
+        imgStyle =
+          style
+            [ ("border-radius", "2px")
+            , ("box-shadow",
+               "0 2px 4px rgba(0,0,0,0.12), 0 2px 3px rgba(0,0,0,0.24)")
+            ]
+        ```
+
+      block buttons
+        .navigationButtons
+          //- a(href='')
+          //-   button.btn.btn--white#prev Back
+          a(href='/lessons/programming-is-a-language')
+            button.btn.btn--white#next Next
+
+  script(src='/javascripts/jquery.js')
+  script(src='/javascripts/typed.js')
+  script(src='/javascripts/typing.js')
+  script(src='/javascripts/giphy.js')
+  script(src='/javascripts/preview.js')

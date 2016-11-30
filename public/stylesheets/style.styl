@@ -63,7 +63,16 @@ abbr:hover::after
 //   position: absolute;
 //   width: 100%;
 
+#preview
+  min-height 550px
 
+.banner
+  background rgb(248, 105, 82) url('../vendor/coffee-flat.png')
+  background-repeat no-repeat
+  height 250px
+  width 100%
+  // background cover
+  background-position: center
 
 
 .blog-content
@@ -109,12 +118,13 @@ abbr:hover::after
   p
     padding-left 50px
     padding-right 50px
-    margin-bottom 35px
+    margin-bottom 20px
     // opacity 0.7
     font-size 19px
     line-height 1.75em
     margin-top 20px
     color #616161
+    text-align: justify
 
   a
     text-decoration none
@@ -125,6 +135,38 @@ abbr:hover::after
 
     :hover
       color #ef6443
+  ul
+    margin-bottom 30px
+  li
+    // background-color: #282c34
+    // color: #fff;
+    counter-increment: myCounter;
+    margin: 0 50px 15px 79px;
+    padding: 10px;
+    position: relative;
+    // top: 1em;
+    border-radius:  0em 1em 1em 0em;
+    padding-left: 2.5em;
+    // font-size: 1.2em;
+  li:before
+    color white
+    content: counter(myCounter);
+    width: 32px;
+    height: 32px
+    display: inline-block;
+    text-align: center;
+    font-size: 1.5em;
+    line-height: 1.1em;
+    background-color:  #60B5CC;
+    padding: 10px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: -25px;
+    border-radius: 50%;
+
+  li:nth-child(even)
+    // background-color: #434A54
 pre
   position relative
   width 100%
@@ -143,12 +185,27 @@ pre::before
   direction rtl
   color #636363
 
+#chat
+  position fixed
+  bottom 50px
+  right 50px
+  width 400px
+  height 100%
 
+button.copyButton
+  color black
+  width 100px
+  height 100px
+  position absolute
+  left 0
+  top 0
+  content "button"
 .blog-panel
   margin-top 30px
   margin-bottom 30px
-  padding-top 50px
-  padding-bottom 50px
+  padding-top 30px
+  padding-bottom 30px
+  // padding-bottom 50px
   color #545454
   font-size 20px
   line-height 1.63
@@ -159,7 +216,7 @@ pre::before
   transition all 0.3s cubic-bezier(.25,.8,.25,1)
 
 .blog-panel:hover
-    box-shadow 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22)
+    box-shadow 0 4px 10px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22)
   ::selection
     background rgba(39,170,225,.85)
     color white
@@ -170,15 +227,16 @@ pre::before
   max-width 750px
   list-style-type none
 
-.lessonButtons
+.navigationButtons
   align-content space-around
-  align-self center
+  text-align center
+  padding-top 30px
 
   .btn,
   .btn:link,
   .btn:visited
     cursor pointer
-    font-size .6em
+    font-size 1.2em
     margin 10px
     outline none
     border-radius: 0.25em;
@@ -189,7 +247,7 @@ pre::before
     // font-family: avenir, helvetica, roboto, arial, sans-serif;
     letter-spacing: 0.1em;
     margin-bottom: 0.5em;
-    padding: 1em 2.5em;
+    padding: 1.3em 3em;
     text-decoration: none;
     text-transform: lowercase;
     font-family 'Open Sans'

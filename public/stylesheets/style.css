@@ -37,6 +37,16 @@ abbr:hover::after {
   box-shadow: 2px 2px 6px rgba(0,0,0,0.28);
 /* This bridges the gap so you can mouse into the tooltip without it disappearing */
 }
+#preview {
+  min-height: 550px;
+}
+.banner {
+  background: #f86952 url("../vendor/coffee-flat.png");
+  background-repeat: no-repeat;
+  height: 250px;
+  width: 100%;
+  background-position: center;
+}
 .blog-content {
   padding: 0 15px;
   padding-bottom: 50px;
@@ -79,11 +89,12 @@ abbr:hover::after {
 .blog-content p {
   padding-left: 50px;
   padding-right: 50px;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
   font-size: 19px;
   line-height: 1.75em;
   margin-top: 20px;
   color: #616161;
+  text-align: justify;
 }
 .blog-content a {
   text-decoration: none;
@@ -94,6 +105,34 @@ abbr:hover::after {
 }
 .blog-content a :hover {
   color: #ef6443;
+}
+.blog-content ul {
+  margin-bottom: 30px;
+}
+.blog-content li {
+  counter-increment: myCounter;
+  margin: 0 50px 15px 79px;
+  padding: 10px;
+  position: relative;
+  border-radius: 0em 1em 1em 0em;
+  padding-left: 2.5em;
+}
+.blog-content li:before {
+  color: #fff;
+  content: counter(myCounter);
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 1.1em;
+  background-color: #60b5cc;
+  padding: 10px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: -25px;
+  border-radius: 50%;
 }
 pre {
   position: relative;
@@ -113,11 +152,27 @@ pre::before {
   direction: rtl;
   color: #636363;
 }
+#chat {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 400px;
+  height: 100%;
+}
+button.copyButton {
+  color: #000;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "button";
+}
 .blog-panel {
   margin-top: 30px;
   margin-bottom: 30px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   color: #545454;
   font-size: 20px;
   line-height: 1.63;
@@ -128,7 +183,7 @@ pre::before {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .blog-panel:hover {
-  box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22);
 }
 ::selection {
   background: rgba(39,170,225,0.85);
@@ -140,15 +195,16 @@ pre::before {
   max-width: 750px;
   list-style-type: none;
 }
-.lessonButtons {
+.navigationButtons {
   align-content: space-around;
-  align-self: center;
+  text-align: center;
+  padding-top: 30px;
 }
-.lessonButtons .btn,
-.lessonButtons .btn:link,
-.lessonButtons .btn:visited {
+.navigationButtons .btn,
+.navigationButtons .btn:link,
+.navigationButtons .btn:visited {
   cursor: pointer;
-  font-size: 0.6em;
+  font-size: 1.2em;
   margin: 10px;
   outline: none;
   border-radius: 0.25em;
@@ -158,39 +214,39 @@ pre::before {
   display: inline-block;
   letter-spacing: 0.1em;
   margin-bottom: 0.5em;
-  padding: 1em 2.5em;
+  padding: 1.3em 3em;
   text-decoration: none;
   text-transform: lowercase;
   font-family: 'Open Sans';
   -webkit-transition: color 0.4s, background-color 0.4s, border 0.4s;
   transition: color 0.4s, background-color 0.4s, border 0.4s;
 }
-.lessonButtons .btn:hover,
-.lessonButtons .btn:focus {
+.navigationButtons .btn:hover,
+.navigationButtons .btn:focus {
   color: #60b5cc;
   border: 1px solid #60b5cc;
   -webkit-transition: background-color 0.3s, color 0.3s, border 0.3s;
   transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
-.lessonButtons .btn:active {
+.navigationButtons .btn:active {
   color: #7fdbff;
   border: 1px solid #7fdbff;
   -webkit-transition: background-color 0.3s, color 0.3s, border 0.3s;
   transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
-.lessonButtons .btn--white,
-.lessonButtons .btn--white:link,
-.lessonButtons .btn--white:visited {
+.navigationButtons .btn--white,
+.navigationButtons .btn--white:link,
+.navigationButtons .btn--white:visited {
   color: #111;
   border-color: #111;
   background-color: #fff;
 }
-.lessonButtons .btn--white:hover,
-.lessonButtons .btn--white:focus {
+.navigationButtons .btn--white:hover,
+.navigationButtons .btn--white:focus {
   color: #60b5cc;
   background-color: rgba(255,255,255,0.7);
 }
-.lessonButtons .btn--white:active {
+.navigationButtons .btn--white:active {
   color: #7fdbff;
   background-color: rgba(255,255,255,0.9);
 }
